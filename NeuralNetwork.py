@@ -1,6 +1,5 @@
 import numpy as np 
 from scipy import special
-from keras.datasets import mnist
 
 
 class Utils:
