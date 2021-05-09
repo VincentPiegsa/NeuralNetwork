@@ -53,7 +53,7 @@ class Layer(object):
 	    activation_function (function): Activation Function
 	    dimension (int): Number of Perceptrons
 	    error (list): Error Vector (Gradient)
-	    id (TYPE): Position of Layer in Neural Network
+	    id (int): Position of Layer in Neural Network
 	    input (list): Input Vector
 	    output (list): Output Vector
 	"""
