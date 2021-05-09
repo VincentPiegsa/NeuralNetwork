@@ -3,8 +3,6 @@ Neural Network Concept
 """
 import numpy as np 
 from scipy import special
-from keras.datasets import mnist
-import datetime
 
 
 class Utils:
