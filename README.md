@@ -2,6 +2,7 @@
 Neural Networks, built from scratch and implemented in Python.
 
 # Usage
+```
 .
 +-- NeuralNetwork.py
 +-- neuralnetwork
@@ -10,6 +11,7 @@ Neural Networks, built from scratch and implemented in Python.
 |   +-- Layer.py
 |   +-- WeightMatrix.py
 |   +-- Utils.py
+```
 
 # Roadmap
 * Batch-Training and Epoches
