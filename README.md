@@ -3,7 +3,7 @@ Neural Networks, built from scratch and implemented in Python.
 
 # Usage
 ```
-NeuralNetwork.py
++-- NeuralNetwork.py
 ``````
 Source Code of a basic neural network.
 
