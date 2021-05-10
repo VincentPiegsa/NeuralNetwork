@@ -3,8 +3,8 @@ Neural Networks, built from scratch and implemented in Python.
 
 # Usage
 ```
-.
 +-- NeuralNetwork.py
+
 +-- neuralnetwork
 |   +-- __init__.py
 |   +-- NeuralNetwork.py
