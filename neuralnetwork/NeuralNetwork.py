@@ -46,7 +46,7 @@ class NeuralNetwork(object):
 
 		self.learning_rate = learning_rate
 
-	def __repr__(self):
+	def __repr__(self) -> str:
 		"""
 		String Representation
 		

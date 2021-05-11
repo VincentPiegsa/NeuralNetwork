@@ -34,7 +34,7 @@ class Layer(object):
 		self.output = []
 		self.error = []
 
-	def __repr__(self):
+	def __repr__(self) -> str:
 		"""
 		String Representation
 		
@@ -43,8 +43,16 @@ class Layer(object):
 		"""
 		return f"Layer object: {self.dimension} Perceptrons"
 
-	def activation_function(self, x):
-
+	def activation_function(self, x: np.array) -> np.array:
+		"""
+		Activation Function of the layers' perceptrons
+		
+		Args:
+		    x (np.array): Processed data
+		
+		Returns:
+		    np.array: Layers' output
+		"""
 		return ActivationFunctions.sigmoid(x)
 
 	def process(self, input: np.array, weight_matrix: np.array):
