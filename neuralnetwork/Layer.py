@@ -1,6 +1,6 @@
 import numpy as np
 
-from .Utils import Utils
+from .Utils import ActivationFunctions
 
 
 class Layer(object):
@@ -45,7 +45,7 @@ class Layer(object):
 
 	def activation_function(self, x):
 
-		return Utils.sigmoid(x)
+		return ActivationFunctions.sigmoid(x)
 
 	def process(self, input: np.array, weight_matrix: np.array):
 		"""

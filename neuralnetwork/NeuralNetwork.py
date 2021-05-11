@@ -1,5 +1,8 @@
 import numpy as np 
+
+import datetime
 import pickle
+import os
 
 from .Layer import Layer
 from .WeightMatrix import WeightMatrix
@@ -145,3 +148,17 @@ class NeuralNetwork(object):
 		total = sum(output)
 
 		return output / total
+
+	def save_model(self, filename=f"model {datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.meta", path='.\\models\\'):
+
+		try:
+
+			if not os.path.exists(path):
+				os.makedirs(path)
+
+			with open(os.path.join(path, filename), 'wb') as file:
+				pickle.dump(self, file)
+
+		except Exception as e:
+
+			raise e

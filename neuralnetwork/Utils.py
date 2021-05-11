@@ -2,7 +2,7 @@ import numpy as np
 from scipy import special
 
 
-class Utils:
+class ActivationFunctions:
 
 	"""
 	Collection of useful functions
@@ -14,7 +14,6 @@ class Utils:
 		Sigmoid Activation Function (Logistic Growth)
 
 		sigma(x) = 1 / (1 + exp(-x))
-		sigma'(x) = sigma(x) * (1 - sigma(x))
 		
 		Args:
 		    x (float): x
@@ -25,12 +24,26 @@ class Utils:
 		return special.expit(x)
 
 	@staticmethod
+	def sigmoid_derivative(x: float) -> float:
+		"""
+		Derivative of Sigmoid Function
+
+		sigma'(x) = sigma(x) * (1 - sigma(x))
+		
+		Args:
+		    x (float): x
+		
+		Returns:
+		    float: d / dx sigmoid(x)
+		"""
+		return special.expit(x) * (1 - special.expit(x))
+
+	@staticmethod
 	def tanh(x: float) -> float:
 		"""
 		Tangens Hyperbolicus Activation Function
 
 		tanh(x) = 1 - 2 / (exp(2x) + 1)
-		tanh'(x) = 1 / cosh(x)^2
 		
 		Args:
 		    x (float): x
@@ -39,6 +52,21 @@ class Utils:
 		    float: tanh(x)
 		"""
 		return np.tanh(x)
+
+	@staticmethod
+	def tanh_derivative(x: float) -> float:
+		"""
+		Derivative of Tangens Hyperbolicus
+
+		tanh'(x) = 1 / cosh(x)^2
+		
+		Args:
+		    x (float): x
+		
+		Returns:
+		    float: d / dx tanh(x)
+		"""
+		return 1 / (np.cosh(x))**2
 
 	@staticmethod
 	def relu(x: float) -> float:
