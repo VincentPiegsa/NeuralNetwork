@@ -13,33 +13,33 @@ if __name__ == '__main__':
 
 	for record, label in zip(x_train, y_train):
 
-    # prescale the training data and labels
+    		# prescale the training data and labels
 		record = np.array(record).flatten('C')
 		inputs = np.asfarray(record / 255.0 * (1 - 1e-3)) + 1e-3
 
 		targets = np.zeros(10) + 1e-3
 		targets[label] = 1 - 1e-3
 
-    # train the neural network with the data
+   		 # train the neural network with the data
 		nn.train(inputs, targets)
 
 	for record, label in zip(x_test, y_test):
 
-    # prescale the testing data and labels
+    		# prescale the testing data and labels
 		record = np.array(record).flatten('C')
 		inputs = np.asfarray(record / 255.0 * (1 - 1e-3)) + 1e-3
 
-    # query the neural network
+    		# query the neural network
 		output = nn.query(inputs)
 		prediction = np.argmax(output)
 
-    # check whether the network's prediction was correct
+    		# check whether the network's prediction was correct
 		if prediction == label:
 			scorecard.append(1)
 		else:
 			scorecard.append(0)
 
-  # calculate the final accuracy of the classifier
+ 	# calculate the final accuracy of the classifier
 	accuracy = sum(scorecard) / len(scorecard) * 100
 
 	print("-"*20 + "\n\n")
