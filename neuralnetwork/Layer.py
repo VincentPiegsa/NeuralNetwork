@@ -3,6 +3,11 @@ import numpy as np
 from .Utils import ActivationFunctions
 
 
+activation_functions = {"sigmoid": [ActivationFunctions.sigmoid, ActivationFunctions.sigmoid_derivative],
+						"tanh": [ActivationFunctions.tanh, ActivationFunctions.tanh_derivative],
+						"relu": [ActivationFunctions.relu, ActivationFunctions.relu_derivative]}
+
+
 class Layer(object):
 
 	"""
@@ -17,7 +22,7 @@ class Layer(object):
 	    output (list): Output Vector
 	"""
 	
-	def __init__(self, dimension: int, id: int, *args, **kwargs):
+	def __init__(self, dimension: int, id: int, activation_function: str, *args, **kwargs):
 		"""
 		Initialize Layer
 		
@@ -29,6 +34,7 @@ class Layer(object):
 		"""
 		self.dimension = dimension
 		self.id = id
+		self._activation_function, self._activation_function_derivative = activation_functions[activation_function]
 
 		self.input = []
 		self.output = []
@@ -53,7 +59,7 @@ class Layer(object):
 		Returns:
 		    np.array: Layers' output
 		"""
-		return ActivationFunctions.sigmoid(x)
+		return self._activation_function(x)
 
 	def process(self, input: np.array, weight_matrix: np.array):
 		"""

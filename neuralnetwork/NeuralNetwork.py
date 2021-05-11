@@ -21,7 +21,7 @@ class NeuralNetwork(object):
 	    weight_matrices (list): List of Weight Matrices
 	"""
 	
-	def __init__(self, layer_dimensions: list, learning_rate: int, *args, **kwargs):
+	def __init__(self, learning_rate: int, layer_dimensions: list = [], *args, **kwargs):
 		"""
 		Initialize Neural Network
 		
@@ -31,20 +31,22 @@ class NeuralNetwork(object):
 		    *args: Arguments
 		    **kwargs: Keyword Arguments
 		"""
+
+		self.learning_rate = learning_rate
+
 		self.layer_dimensions = layer_dimensions
 		self.num_layers = len(self.layer_dimensions)
 
 		self.layers = []
 		self.weight_matrices = []
 
-		for layer in range(self.num_layers):
-			self.layers.append(Layer(self.layer_dimensions[layer], layer))
+		# create a fully connected neural network of the specified dimensions with sigmoid activation function
+		if len(self.layer_dimensions) != 0:
 
-		for weight_matrix in range(self.num_layers - 1):
-			dimensions = (self.layers[weight_matrix + 1].dimension, self.layers[weight_matrix].dimension)
-			self.weight_matrices.append(WeightMatrix(dimensions))
+			for layer in range(self.num_layers):
+				self.layers.append(Layer(self.layer_dimensions[layer], layer, 'sigmoid'))
 
-		self.learning_rate = learning_rate
+			self.connect_layers()
 
 	def __repr__(self) -> str:
 		"""
@@ -54,6 +56,30 @@ class NeuralNetwork(object):
 		    str: Description
 		"""
 		return f"NeuralNetwork object: {self.num_layers} Layers"
+
+	def add_layer(self, layer: Layer):
+		"""
+		Manually add a layer to the Neural Network
+		
+		Args:
+		    layer (Layer): Layer object
+		"""
+		self.layers.append(layer)
+		self.layer_dimensions.append(layer.dimension)
+		self.num_layers += 1
+
+	def connect_layers(self):
+		"""
+		Automatically connect the layers by creating the corresponding weight matrices 
+		"""
+
+		if len(self.weight_matrices) != 0:
+			print('Detected and cleared already existing weight matrices.')
+			self.weight_matrices = []
+
+		for weight_matrix in range(self.num_layers - 1):
+			dimensions = (self.layers[weight_matrix + 1].dimension, self.layers[weight_matrix].dimension)
+			self.weight_matrices.append(WeightMatrix(dimensions))
 
 	def train(self, input: np.array, target: np.array):
 		"""

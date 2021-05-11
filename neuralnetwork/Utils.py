@@ -81,3 +81,17 @@ class ActivationFunctions:
 		"""
 		return x if (x > 0) else 0
 
+	@staticmethod
+	def relu_derivative(x: float) -> float:
+		"""
+		Derivative of Rectified Linear Unit (ReLU) 
+		
+		Args:
+		    x (float): x
+		
+		Returns:
+		    float: d / dx ReLU(x)
+		"""
+		return 1 if (x > 0) else 0
+
+

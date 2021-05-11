@@ -31,3 +31,7 @@ class WeightMatrix(object):
 		    str: Description
 		"""
 		return f"WeightMatrix object: {self.dimensions[0]} x {self.dimensions[1]} Weights"
+
+	def __add__(self, x: np.array):
+
+		self.matrix += x
