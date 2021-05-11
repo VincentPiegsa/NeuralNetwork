@@ -20,7 +20,7 @@ if __name__ == '__main__':
 		targets = np.zeros(10) + 1e-3
 		targets[label] = 1 - 1e-3
 
-   		 # train the neural network with the data
+   		# train the neural network with the data
 		nn.train(inputs, targets)
 
 	for record, label in zip(x_test, y_test):
