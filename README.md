@@ -17,6 +17,12 @@ Source Code of a basic neural network.
 ```````
 Module that supports developing advanced neural networks.
 
+``````
++-- examples
+|   +-- mnist_classifier.py
+```````
+Example sketches to showcase the modules functionality.
+
 # Roadmap
 * Batch-Training and Epoches
 * Other Activation Functions
