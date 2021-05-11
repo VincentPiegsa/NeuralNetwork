@@ -23,7 +23,7 @@ class WeightMatrix(object):
 		self.dimensions = dimensions
 		self.matrix = np.random.normal(0.0, pow(self.dimensions[1], -0.5), self.dimensions)
 
-	def __repr__(self):
+	def __repr__(self) -> str:
 		"""
 		String Representation
 		
