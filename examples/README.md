@@ -1,2 +1,2 @@
 # Examples
-Some example sketches to showcase the modules' usage.
+Some example sketches to showcase the module's usage.
